@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .todo-item {
+    @apply bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .todo-item:hover {
+    transform: translateY(-2px);
+  }
+
+  .priority-badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium;
+  }
+
+  .priority-high {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .priority-medium {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .priority-low {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .status-badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium;
+  }
+
+  .status-pending {
+    @apply bg-gray-100 text-gray-800;
+  }
+
+  .status-in-progress {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  .status-completed {
+    @apply bg-green-100 text-green-800;
+  }
+}
+
+/* Custom animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.todo-item {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+/* Input focus styles */
+input:focus, select:focus {
+  @apply outline-none ring-2 ring-blue-500 ring-opacity-50;
+}
+
+/* Button hover effects */
+button {
+  @apply transition-all duration-200;
+}
+
+button:hover {
+  @apply transform scale-105;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s infinite;
+}
